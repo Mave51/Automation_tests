@@ -1,7 +1,6 @@
 package configuration;
 
 import driver.manager.BrowserType;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public class LocalWebDriverProperties {
 
