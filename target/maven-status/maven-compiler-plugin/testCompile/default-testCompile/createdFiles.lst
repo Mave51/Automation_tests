@@ -1,0 +1,17 @@
+configuration\ConfigurationProperties.class
+pageObjects\AccountServicesPage.class
+driver\manager\BrowserFactory$1.class
+driver\manager\BrowserFactory.class
+driver\manager\DriverManager.class
+driver\manager\DriverUtils.class
+configuration\AppProperties.class
+pageObjects\RegisterAccountPage.class
+configuration\PropertiesLoader.class
+tests\AccountRegistrationTest.class
+navigation\ApplicationURLs.class
+configuration\LocalWebDriverProperties.class
+driver\manager\BrowserType.class
+pageObjects\BasePage.class
+tests\LoginTests.class
+tests\TestBase.class
+pageObjects\MainPage.class
