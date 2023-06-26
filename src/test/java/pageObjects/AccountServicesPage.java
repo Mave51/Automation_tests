@@ -6,18 +6,18 @@ import org.openqa.selenium.support.FindBy;
 public class AccountServicesPage extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"rightPanel\"]/p")
-    public WebElement succesfullRegisterMessage;
+    private WebElement successfulRegisterMessage;
 
     @FindBy(xpath = "//*[@id=\"leftPanel\"]/h2")
-    public WebElement accountServicesMenu;
+    private WebElement accountServicesMenu;
 
     @FindBy(xpath = "//*[@id=\"rightPanel\"]/p")
-    public WebElement failedLoginAttemptMessage;
+    private WebElement failedLoginAttemptMessage;
 
     public String getSuccessfulRegisterMessage(){
         LOGGER.info("After correct account registration get confirmation text");
-        waitUntilElementIsVisible(succesfullRegisterMessage);
-        return succesfullRegisterMessage.getText();
+        waitUntilElementIsVisible(successfulRegisterMessage);
+        return successfulRegisterMessage.getText();
     }
 
     public String getAccountServicesMenuTitleNameAfterLogin(){

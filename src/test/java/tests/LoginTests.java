@@ -8,9 +8,6 @@ import static org.testng.AssertJUnit.assertEquals;
 
 
 public class LoginTests extends TestBase {
-
-
-
     @Test public void TestPositiveLogin() {
 
         String userName = "John123";

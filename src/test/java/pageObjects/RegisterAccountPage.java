@@ -6,40 +6,40 @@ import org.openqa.selenium.support.FindBy;
 public class RegisterAccountPage extends BasePage {
 
     @FindBy(id = "customer.firstName")
-    public WebElement firstNameInput;
+    private WebElement firstNameInput;
 
     @FindBy(id= "customer.lastName")
-    public WebElement lastNameInput;
+    private WebElement lastNameInput;
 
     @FindBy(id = "customer.address.street")
-    public WebElement addressInput;
+    private WebElement addressInput;
 
     @FindBy(id = "customer.address.city")
-    public WebElement cityInput;
+    private WebElement cityInput;
 
     @FindBy(id = "customer.address.state")
-    public WebElement stateInput;
+    private WebElement stateInput;
 
     @FindBy(id = "customer.address.zipCode")
-    public WebElement zipCodeInput;
+    private WebElement zipCodeInput;
 
     @FindBy(id = "customer.phoneNumber")
-    public WebElement phoneNumberInput;
+    private WebElement phoneNumberInput;
 
     @FindBy(id = "customer.ssn")
-    public WebElement ssnInput;
+    private WebElement ssnInput;
 
     @FindBy(id = "customer.username")
-    public WebElement userNameInput;
+    private WebElement userNameInput;
 
     @FindBy(id = "customer.password")
-    public WebElement passwordInput;
+    private WebElement passwordInput;
 
     @FindBy(id = "repeatedPassword")
-    public WebElement confirmPasswordInput;
+    private WebElement confirmPasswordInput;
 
     @FindBy(xpath = "//*[@id=\"customerForm\"]/table/tbody/tr[13]/td[2]/input")
-    public WebElement submitAccountRegistrationButton;
+    private WebElement submitAccountRegistrationButton;
 
    public RegisterAccountPage typeIntoFirstNameInput(String firstName){
         LOGGER.info("Type user first name into firstNameInput");

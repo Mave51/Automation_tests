@@ -6,16 +6,16 @@ import org.openqa.selenium.support.FindBy;
 public class MainPage extends BasePage {
 
     @FindBy(linkText = "Register")
-    public WebElement registerAccountButton;
+    private WebElement registerAccountButton;
 
     @FindBy(name = "username")
-    public WebElement loginUserNameInput;
+    private WebElement loginUserNameInput;
 
     @FindBy(name = "password")
-    public WebElement loginPasswordInput;
+    private WebElement loginPasswordInput;
 
     @FindBy(xpath = "//*[@id=\"loginPanel\"]/form/div[3]/input")
-    public WebElement submitLoginButton;
+    private WebElement submitLoginButton;
 
 
 
