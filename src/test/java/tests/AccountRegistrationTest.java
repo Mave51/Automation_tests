@@ -1,21 +1,21 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.testng.annotations.Test;
 import pageObjects.AccountServicesPage;
 import pageObjects.MainPage;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AccountRegistrationTest extends TestBase {
     @Test
+    @Tag("RegressionTest")
     public void registerNewAccountTest(){
 
         String userName = createRandomUserName(5);
+        String desiredMessage = "Your account was created successfully. You are now logged in.";
 
-
-        MainPage mainPage = new MainPage();
-
-        mainPage
+        AccountServicesPage accountServicesPage = MainPage.using(driver, wait)
                 .goToRegisterAccountPage()
                 .typeIntoFirstNameInput("John")
                 .typeIntoLastNameInput("Johnson")
@@ -30,9 +30,7 @@ public class AccountRegistrationTest extends TestBase {
                 .typeIntoConfirmPasswordInput("Pass1")
                 .submitAccountRegistration();
 
-        AccountServicesPage accountServicesPage = new AccountServicesPage();
-
-        assertEquals(accountServicesPage.getSuccessfulRegisterMessage(), "Your account was created successfully. You are now logged in.");
+        assertEquals(desiredMessage, accountServicesPage.getSuccessfulRegisterMessage());
 
 
 

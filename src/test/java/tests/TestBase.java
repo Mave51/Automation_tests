@@ -4,6 +4,8 @@ import configuration.ConfigurationProperties;
 import configuration.PropertiesLoader;
 import driver.manager.DriverManager;
 import driver.manager.DriverUtils;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -13,6 +15,9 @@ import java.util.Properties;
 import static navigation.ApplicationURLs.APPLICATION_URL;
 
 public class TestBase {
+
+    protected static WebDriver driver;
+    protected static WebDriverWait wait;
 
     @BeforeClass
     public void beforeClass() {

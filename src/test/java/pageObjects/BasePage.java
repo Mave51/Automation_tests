@@ -14,11 +14,13 @@ import java.time.Duration;
 
 public class BasePage {
 
-    WebDriver driver = DriverManager.getWebDriver();
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    public final Logger LOGGER = LogManager.getLogger(BasePage.class);
 
-    public final Logger LOGGER = LogManager.getLogger(this.getClass().getName());
-
-    public BasePage() {
+    public BasePage(WebDriver driver, WebDriverWait wait) {
+        this.driver = driver;
+        this.wait = wait;
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
@@ -26,9 +28,8 @@ public class BasePage {
         return LOGGER;
     }
 
-
-    private static WebDriverWait getWebDriverWait() {
-        return new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(10));
+    public static WebDriverWait getWebDriverWait() {
+        return new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(20));
     }
 
     public static void waitUntilElementIsVisible(WebElement element) {
@@ -41,13 +42,18 @@ public class BasePage {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void click(WebElement webElement){
-        webElement.click();
+    public void click(WebElement element){
+        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void navigateToElement(WebElement webElement){
-        Actions actions = new Actions(driver);
-        actions.moveToElement(webElement).release().perform();
+    public void navigateToElement(WebElement element){
+        try {
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element).release().perform();
+        } catch (Exception e){
+            LOGGER.info("Unable navigate to exact element due to: " + e);
+
+        }
     }
 
 

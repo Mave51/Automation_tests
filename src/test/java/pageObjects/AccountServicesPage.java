@@ -1,7 +1,9 @@
 package pageObjects;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AccountServicesPage extends BasePage {
 
@@ -13,6 +15,10 @@ public class AccountServicesPage extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"rightPanel\"]/p")
     private WebElement failedLoginAttemptMessage;
+
+    public AccountServicesPage(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
+    }
 
     public String getSuccessfulRegisterMessage(){
         LOGGER.info("After correct account registration get confirmation text");

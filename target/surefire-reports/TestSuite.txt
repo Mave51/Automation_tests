@@ -1,10 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 2, Errors: 0, Skipped: 4, Time elapsed: 0.686 s <<< FAILURE! - in TestSuite
-tests.AccountRegistrationTest.beforeTest  Time elapsed: 0.578 s  <<< FAILURE!
-java.lang.IllegalStateException: The driver executable must exist: C:\drivers\chromedriver.exe
-
-tests.LoginTests.beforeTest  Time elapsed: 0.027 s  <<< FAILURE!
-java.lang.IllegalStateException: The driver executable must exist: C:\drivers\chromedriver.exe
-
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.317 s - in TestSuite

@@ -3,7 +3,6 @@ package driver.manager;
 
 import configuration.LocalWebDriverProperties;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverManager {
     private static WebDriver driver;
@@ -12,7 +11,6 @@ public class DriverManager {
     }
 
     public static WebDriver getWebDriver() {
-
         if (driver == null) {
             driver = BrowserFactory.getBrowser(LocalWebDriverProperties.getLocalBrowser());
         }
