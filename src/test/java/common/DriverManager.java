@@ -1,7 +1,6 @@
-package driver.manager;
+package common;
 
 
-import configuration.LocalWebDriverProperties;
 import org.openqa.selenium.WebDriver;
 
 public class DriverManager {

@@ -1,7 +1,8 @@
 package tests;
 
 import org.junit.jupiter.api.Tag;
-import org.testng.annotations.Test;
+
+import org.junit.jupiter.api.Test;
 import pageObjects.AccountServicesPage;
 import pageObjects.MainPage;
 

@@ -2,8 +2,8 @@ package tests;
 
 import configuration.ConfigurationProperties;
 import configuration.PropertiesLoader;
-import driver.manager.DriverManager;
-import driver.manager.DriverUtils;
+import common.DriverManager;
+import common.DriverUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;

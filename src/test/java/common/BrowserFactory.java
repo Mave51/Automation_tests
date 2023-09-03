@@ -1,6 +1,5 @@
-package driver.manager;
+package common;
 
-import configuration.LocalWebDriverProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

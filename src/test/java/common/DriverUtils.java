@@ -1,4 +1,4 @@
-package driver.manager;
+package common;
 
 public class DriverUtils {
     public static void setInitialConfiguration() {

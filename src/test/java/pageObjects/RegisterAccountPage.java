@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static common.DriverManager.getWebDriver;
+
 public class RegisterAccountPage extends BasePage {
 
     @FindBy(id = "customer.firstName")
@@ -116,7 +118,7 @@ public class RegisterAccountPage extends BasePage {
     public AccountServicesPage submitAccountRegistration(){
         LOGGER.info("Submit account registration by clicking button");
         submitAccountRegistrationButton.click();
-        return new AccountServicesPage(driver, wait);
+        return new AccountServicesPage(getWebDriver(), wait);
     }
 }
 

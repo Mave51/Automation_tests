@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static common.DriverManager.getWebDriver;
+
 public class MainPage extends BasePage {
 
     @FindBy(linkText = "Register")
@@ -31,7 +33,7 @@ public class MainPage extends BasePage {
      public RegisterAccountPage goToRegisterAccountPage(){
         LOGGER.info("Go to the register account page from main page");
         registerAccountButton.click();
-        return new RegisterAccountPage(driver, wait);
+        return new RegisterAccountPage(getWebDriver(), wait);
     }
 
     public MainPage typeIntoLoginUserNameInput(String userName){
@@ -49,7 +51,7 @@ public class MainPage extends BasePage {
     public AccountServicesPage submitLogin(){
          LOGGER.info("Sumbit login on Main Page by click log in button ");
          submitLoginButton.click();
-         return new AccountServicesPage(driver, wait);
+         return new AccountServicesPage(getWebDriver(), wait);
     }
 
 }

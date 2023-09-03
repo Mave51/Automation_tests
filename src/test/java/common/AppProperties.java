@@ -1,4 +1,6 @@
-package configuration;
+package common;
+
+import configuration.ConfigurationProperties;
 
 public class AppProperties {
     public static String getAllUrl() {

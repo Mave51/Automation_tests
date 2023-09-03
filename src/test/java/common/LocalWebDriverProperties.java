@@ -1,6 +1,6 @@
-package configuration;
+package common;
 
-import driver.manager.BrowserType;
+import configuration.ConfigurationProperties;
 
 public class LocalWebDriverProperties {
 
