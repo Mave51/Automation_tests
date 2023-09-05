@@ -1,7 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Tag;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 import pageObjects.AccountServicesPage;
 import pageObjects.MainPage;
 
@@ -14,7 +14,7 @@ public class LoginTests extends TestBase {
         String userName = "John123";
         String password = "John123";
 
-        AccountServicesPage accountServicesPage = MainPage.using(driver, wait)
+        AccountServicesPage accountServicesPage = new MainPage()
                 .typeIntoLoginUserNameInput(userName)
                 .typeIntoLoginPasswordInput(password)
                 .submitLogin();

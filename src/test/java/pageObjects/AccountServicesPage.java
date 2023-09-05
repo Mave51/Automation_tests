@@ -16,9 +16,6 @@ public class AccountServicesPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"rightPanel\"]/p")
     private WebElement failedLoginAttemptMessage;
 
-    public AccountServicesPage(WebDriver driver, WebDriverWait wait) {
-        super(driver, wait);
-    }
 
     public String getSuccessfulRegisterMessage(){
         LOGGER.info("After correct account registration get confirmation text");

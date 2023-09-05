@@ -16,7 +16,7 @@ public class AccountRegistrationTest extends TestBase {
         String userName = createRandomUserName(5);
         String desiredMessage = "Your account was created successfully. You are now logged in.";
 
-        AccountServicesPage accountServicesPage = MainPage.using(driver, wait)
+        AccountServicesPage accountServicesPage = new MainPage()
                 .goToRegisterAccountPage()
                 .typeIntoFirstNameInput("John")
                 .typeIntoLastNameInput("Johnson")
