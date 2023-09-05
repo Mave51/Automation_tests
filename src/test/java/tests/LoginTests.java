@@ -18,6 +18,6 @@ public class LoginTests extends TestBase {
                 .typeIntoLoginUserNameInput(userName)
                 .typeIntoLoginPasswordInput(password)
                 .submitLogin();
-        assertEquals(accountServicesPage.getAccountServicesMenuTitleNameAfterLogin(), "Account Services");
+        assertEquals("Customer Login", accountServicesPage.getAccountServicesMenuTitleNameAfterLogin());
     }
 }
