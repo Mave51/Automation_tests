@@ -2,16 +2,19 @@ package tests;
 
 import common.DriverManager;
 import common.DriverUtils;
+import common.makeScreenShotOnFailure;
 import configuration.ConfigurationProperties;
 import configuration.PropertiesLoader;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.Properties;
 
 import static navigation.ApplicationURLs.APPLICATION_URL;
 
+@ExtendWith(makeScreenShotOnFailure.class)
 public class TestBase {
 
     @BeforeAll
