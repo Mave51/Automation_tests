@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import pageObjects.AccountServicesPage;
 import pageObjects.MainPage;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginTests extends TestBase {
     @Test
