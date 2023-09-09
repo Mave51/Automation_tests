@@ -1,11 +1,7 @@
 package pageObjects;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static common.DriverManager.getWebDriver;
 
 public class RegisterAccountPage extends BasePage {
 
@@ -44,10 +40,6 @@ public class RegisterAccountPage extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"customerForm\"]/table/tbody/tr[13]/td[2]/input")
     private WebElement submitAccountRegistrationButton;
-
-    public RegisterAccountPage(WebDriver driver, WebDriverWait wait) {
-        super(driver, wait);
-    }
 
     public RegisterAccountPage typeIntoFirstNameInput(String firstName){
         LOGGER.info("Type user first name into firstNameInput");
@@ -118,7 +110,7 @@ public class RegisterAccountPage extends BasePage {
     public AccountServicesPage submitAccountRegistration(){
         LOGGER.info("Submit account registration by clicking button");
         submitAccountRegistrationButton.click();
-        return new AccountServicesPage(getWebDriver(), wait);
+        return new AccountServicesPage();
     }
 }
 

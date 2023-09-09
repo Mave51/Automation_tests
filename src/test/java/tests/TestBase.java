@@ -1,39 +1,37 @@
 package tests;
 
-import configuration.ConfigurationProperties;
-import configuration.PropertiesLoader;
 import common.DriverManager;
 import common.DriverUtils;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import common.makeScreenShotOnFailure;
+import configuration.ConfigurationProperties;
+import configuration.PropertiesLoader;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.Properties;
 
 import static navigation.ApplicationURLs.APPLICATION_URL;
 
+@ExtendWith(makeScreenShotOnFailure.class)
 public class TestBase {
 
-    protected static WebDriver driver;
-    protected static WebDriverWait wait;
-
-    @BeforeClass
-    public void beforeClass() {
+    @BeforeAll
+    public static void beforeAll() {
         PropertiesLoader propertiesLoader = new PropertiesLoader();
         Properties propertiesFromFile = propertiesLoader.getPropertiesFromFile("configuration.properties");
         ConfigurationProperties.setProperties(propertiesFromFile);
     }
 
-    @BeforeMethod
+    @BeforeEach
     public void beforeTest() {
         DriverManager.getWebDriver();
         DriverUtils.setInitialConfiguration();
         DriverUtils.navigateToPage(APPLICATION_URL);
     }
 
-    @AfterMethod
+   @AfterEach
     public void afterTest() {
         DriverManager.disposeDriver();
     }
