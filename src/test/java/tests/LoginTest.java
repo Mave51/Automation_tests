@@ -7,7 +7,7 @@ import pageObjects.MainPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LoginTests extends TestBase {
+public class LoginTest extends BaseTest {
     @Test
     @Tag("RegressionTest")
     public void TestPositiveLogin() {

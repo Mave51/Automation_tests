@@ -15,7 +15,7 @@ import java.util.Properties;
 import static navigation.ApplicationURLs.APPLICATION_URL;
 
 @ExtendWith(makeScreenShotOnFailure.class)
-public class TestBase {
+public class BaseTest {
 
     @BeforeAll
     public static void beforeAll() {

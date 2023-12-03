@@ -1,14 +1,13 @@
 package tests;
 
 import org.junit.jupiter.api.Tag;
-
 import org.junit.jupiter.api.Test;
 import pageObjects.AccountServicesPage;
 import pageObjects.MainPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AccountRegistrationTest extends TestBase {
+public class AccountRegistrationTest extends BaseTest {
     @Test
     @Tag("RegressionTest")
     public void registerNewAccountTest(){
