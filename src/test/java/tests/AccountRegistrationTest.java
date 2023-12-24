@@ -3,40 +3,20 @@ package tests;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pageObjects.AccountServicesPage;
-import pageObjects.MainPage;
+import pageObjects.DTO.AccountRegistrationDTO;
+import pageObjects.RegisterAccountPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AccountRegistrationTest extends BaseTest {
+class AccountRegistrationTest extends BaseTest {
     @Test
     @Tag("RegressionTest")
-    public void registerNewAccountTest(){
-
-        String userName = createRandomUserName(5);
+    void should_register_new_account() {
         String desiredMessage = "Your account was created successfully. You are now logged in.";
 
-        AccountServicesPage accountServicesPage = new MainPage()
-                .goToRegisterAccountPage()
-                .typeIntoFirstNameInput("John")
-                .typeIntoLastNameInput("Johnson")
-                .typeIntoAddressInput("Brooklyn 99")
-                .typeIntoCityInput("New York")
-                .typeIntoStateInput("New York")
-                .typeIntoZipCodeInput("00-000")
-                .typeIntoPhoneNumberInput("180080000")
-                .typeIntoSSNInput("00000")
-                .typeIntoUserNameInput(userName)
-                .typeIntoPasswordInput("Pass1")
-                .typeIntoConfirmPasswordInput("Pass1")
-                .submitAccountRegistration();
-
+        AccountServicesPage accountServicesPage = new RegisterAccountPage()
+                .registerNewAccount(AccountRegistrationDTO.getDefaultDTO());
         assertEquals(desiredMessage, accountServicesPage.getSuccessfulRegisterMessage());
-
-
-
-
-
-
 
     }
 }

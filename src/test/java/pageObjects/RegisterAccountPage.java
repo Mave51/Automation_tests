@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pageObjects.DTO.AccountRegistrationDTO;
 
 public class RegisterAccountPage extends BasePage {
 
@@ -43,74 +44,93 @@ public class RegisterAccountPage extends BasePage {
 
     public RegisterAccountPage typeIntoFirstNameInput(String firstName){
         LOGGER.info("Type user first name into firstNameInput");
-        firstNameInput.sendKeys(firstName);
+        sendKeys(firstNameInput, firstName);
         return this;
     }
 
     public RegisterAccountPage typeIntoLastNameInput(String lastName){
         LOGGER.info("Type user last name into firstNameInput");
-        lastNameInput.sendKeys(lastName);
+        sendKeys(lastNameInput, lastName);
         return this;
     }
 
     public RegisterAccountPage typeIntoAddressInput (String address){
         LOGGER.info("Type user address into addressInput");
-        addressInput.sendKeys(address);
+        sendKeys(addressInput, address);
         return this;
     }
 
     public RegisterAccountPage typeIntoCityInput(String city){
        LOGGER.info("Type user address into addressInput");
-       cityInput.sendKeys(city);
+       sendKeys(cityInput, city);
        return this;
     }
 
     public RegisterAccountPage typeIntoStateInput(String state){
         LOGGER.info("Type user state into stateInput");
-        stateInput.sendKeys(state);
+        sendKeys(stateInput, state);
         return this;
     }
 
     public RegisterAccountPage typeIntoZipCodeInput(String zipCode){
         LOGGER.info("Type user zip code into zipCodeInput");
-        zipCodeInput.sendKeys(zipCode);
+        sendKeys(zipCodeInput, zipCode);
         return this;
     }
 
     public RegisterAccountPage typeIntoPhoneNumberInput(String phoneNumber){
         LOGGER.info("Type user phone number into phoneNumberInput");
-        phoneNumberInput.sendKeys(phoneNumber);
+        sendKeys(phoneNumberInput, phoneNumber);
         return this;
     }
 
     public RegisterAccountPage typeIntoSSNInput(String ssnNumber){
         LOGGER.info("Type user SSN into ssnNumber");
-        ssnInput.sendKeys(ssnNumber);
+        sendKeys(ssnInput, ssnNumber);
         return this;
     }
 
     public RegisterAccountPage typeIntoUserNameInput(String userName){
         LOGGER.info("Type user name into userNameInput");
-        userNameInput.sendKeys(userName);
+        sendKeys(userNameInput, userName);
         return this;
     }
 
     public RegisterAccountPage typeIntoPasswordInput(String password){
         LOGGER.info("Type user password into passwordInput");
-        passwordInput.sendKeys(password);
+        sendKeys(passwordInput, password);
         return this;
     }
 
     public RegisterAccountPage typeIntoConfirmPasswordInput(String password){
         LOGGER.info("Type user password into confirmPasswordInput");
-        confirmPasswordInput.sendKeys(password);
+        sendKeys(confirmPasswordInput, password);
         return this;
     }
 
     public AccountServicesPage submitAccountRegistration(){
         LOGGER.info("Submit account registration by clicking button");
-        submitAccountRegistrationButton.click();
+        click(submitAccountRegistrationButton);
+        return new AccountServicesPage();
+    }
+
+    public AccountServicesPage registerNewAccount(AccountRegistrationDTO accountRegistrationDTO) {
+        AccountServicesPage accountServicesPage = new MainPage()
+                .goToRegisterAccountPage()
+                .typeIntoFirstNameInput(accountRegistrationDTO.getName())
+                .typeIntoLastNameInput(accountRegistrationDTO.getSurname())
+                .typeIntoAddressInput(accountRegistrationDTO.getStreet())
+                .typeIntoCityInput(accountRegistrationDTO.getCity())
+                .typeIntoStateInput(accountRegistrationDTO.getState())
+                .typeIntoZipCodeInput(accountRegistrationDTO.getZipcode())
+                .typeIntoPhoneNumberInput(accountRegistrationDTO.getPhoneNumber())
+                .typeIntoSSNInput(accountRegistrationDTO.getSsnNumber())
+                .typeIntoUserNameInput(accountRegistrationDTO.getUserName())
+                .typeIntoPasswordInput(accountRegistrationDTO.getPassword())
+                .typeIntoConfirmPasswordInput(accountRegistrationDTO.getPassword())
+                .submitAccountRegistration();
         return new AccountServicesPage();
     }
 }
+
 
