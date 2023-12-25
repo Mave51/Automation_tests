@@ -2,7 +2,7 @@ package tests;
 
 import common.DriverManager;
 import common.DriverUtils;
-import common.makeScreenShotOnFailure;
+import common.MakeScreenShotOnFailure;
 import configuration.ConfigurationProperties;
 import configuration.PropertiesLoader;
 import org.junit.jupiter.api.AfterEach;
@@ -14,7 +14,7 @@ import java.util.Properties;
 
 import static navigation.ApplicationURLs.APPLICATION_URL;
 
-@ExtendWith(makeScreenShotOnFailure.class)
+@ExtendWith(MakeScreenShotOnFailure.class)
 public class BaseTest {
 
     @BeforeAll
