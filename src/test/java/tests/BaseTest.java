@@ -2,7 +2,7 @@ package tests;
 
 import common.DriverManager;
 import common.DriverUtils;
-import common.makeScreenShotOnFailure;
+import common.MakeScreenShotOnFailure;
 import configuration.ConfigurationProperties;
 import configuration.PropertiesLoader;
 import org.junit.jupiter.api.AfterEach;
@@ -14,8 +14,8 @@ import java.util.Properties;
 
 import static navigation.ApplicationURLs.APPLICATION_URL;
 
-@ExtendWith(makeScreenShotOnFailure.class)
-public class TestBase {
+@ExtendWith(MakeScreenShotOnFailure.class)
+public class BaseTest {
 
     @BeforeAll
     public static void beforeAll() {
@@ -36,29 +36,6 @@ public class TestBase {
         DriverManager.disposeDriver();
     }
 
-    public static String createRandomUserName(int n) {
-
-
-        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                + "0123456789"
-                + "abcdefghijklmnopqrstuvxyz";
-
-        StringBuilder sb = new StringBuilder(n);
-
-        for (int i = 0; i < n; i++) {
-
-            int index
-                    = (int) (AlphaNumericString.length()
-                    * Math.random());
-
-            sb.append(AlphaNumericString
-                    .charAt(index));
-            return sb.toString();
-
-
-        }
-        return "User" + sb;
-    }
 }
 
 

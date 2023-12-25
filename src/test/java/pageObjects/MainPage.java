@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pageObjects.DTO.LoginDataDTO;
 
 public class MainPage extends BasePage {
 
@@ -20,25 +21,32 @@ public class MainPage extends BasePage {
 
      public RegisterAccountPage goToRegisterAccountPage(){
         LOGGER.info("Go to the register account page from main page");
-        registerAccountButton.click();
+        click(registerAccountButton);
         return new RegisterAccountPage();
     }
 
     public MainPage typeIntoLoginUserNameInput(String userName){
          LOGGER.info("On Main Page type user name into loginUserNameInput");
-         loginUserNameInput.sendKeys(userName);
+         sendKeys(loginUserNameInput, userName);
          return this;
     }
 
     public MainPage typeIntoLoginPasswordInput(String password){
          LOGGER.info("On Main Page type password into loginPasswordInput");
-         loginPasswordInput.sendKeys(password);
+         sendKeys(loginPasswordInput, password);
          return this;
     }
 
     public AccountServicesPage submitLogin(){
          LOGGER.info("Sumbit login on Main Page by click log in button ");
-         submitLoginButton.click();
+         click(submitLoginButton);
+         return new AccountServicesPage();
+    }
+
+    public AccountServicesPage loginUser(LoginDataDTO loginDataDTO) {
+         typeIntoLoginUserNameInput(loginDataDTO.getUserName());
+         typeIntoLoginPasswordInput(loginDataDTO.getPassword());
+         submitLogin();
          return new AccountServicesPage();
     }
 

@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class BasePage {
 
-    public final Logger LOGGER  = LogManager.getLogger(this.getClass().getName());
+    public final Logger LOGGER = LogManager.getLogger(this.getClass().getName());
 
     public BasePage() {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
@@ -32,7 +32,22 @@ public class BasePage {
     }
 
     public void click(WebElement element) {
-        getWebDriverWait().until(ExpectedConditions.elementToBeClickable(element));
+        try {
+            getWebDriverWait().until(ExpectedConditions.elementToBeClickable(element));
+        } catch (Exception e) {
+            LOGGER.info("Unable to click on element");
+            e.printStackTrace();
+        }
+
+    }
+
+    public void sendKeys(WebElement element, String text) {
+        try {
+            element.sendKeys(text);
+        } catch (Exception e) {
+            LOGGER.info("Unable to type text into input");
+            e.printStackTrace();
+        }
     }
 
     public void navigateToElement(WebElement element) {
@@ -45,5 +60,20 @@ public class BasePage {
         }
     }
 
+    public static String createRandomUserName(int n) {
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "0123456789"
+                + "abcdefghijklmnopqrstuvxyz";
+        StringBuilder sb = new StringBuilder(n);
 
+        for (int i = 0; i < n; i++) {
+
+            int index = (int) (AlphaNumericString.length() * Math.random());
+
+            sb.append(AlphaNumericString
+                    .charAt(index));
+            return sb.toString();
+        }
+        return "User" + sb;
+    }
 }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
 
 import static common.ScreenShotMaker.makeScreenShot;
 
-public class makeScreenShotOnFailure implements TestExecutionExceptionHandler {
+public class MakeScreenShotOnFailure implements TestExecutionExceptionHandler {
     @Override
     public void handleTestExecutionException(ExtensionContext extensionContext, Throwable throwable) throws Throwable {
         if (throwable instanceof Exception || throwable instanceof Error) {
