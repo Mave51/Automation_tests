@@ -9,11 +9,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import java.util.Properties;
 
 import static navigation.ApplicationURLs.APPLICATION_URL;
 
+@Execution(ExecutionMode.CONCURRENT)
 @ExtendWith(MakeScreenShotOnFailure.class)
 public class BaseTest {
 
